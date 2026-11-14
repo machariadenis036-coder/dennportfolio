@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Portfolio content (profile, skills, projects) lives in the database and is edited from `/admin`; components only render it — keeps the site editable without code changes.
+- Public data is loaded via `getPortfolio` server fn with a publishable client; admin writes use the browser client under RLS (`has_role(..., 'admin')`) — no service-role usage needed.
+- Admin role is granted by a trigger on `auth.users` only to the owner's email once confirmed — never grant roles from the client.
+- Contact form: `sendContactMessage` saves to `messages` then emails the owner via the Gmail connector (`src/lib/gmail.server.ts`); email failure must not lose the saved message.
+- WhatsApp is click-to-chat only (`whatsappLink` in `src/lib/contact.ts`), no WhatsApp API.
