@@ -15,4 +15,17 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    optimizeDeps: {
+      // Pre-declare the deps TanStack Start's server-fn splitting discovers late in dev.
+      // Without them here, Vite re-optimizes mid-session and swaps the pre-bundled React
+      // chunk out from under an open tab -> "Cannot read properties of null (reading 'useEffect')".
+      include: [
+        "@tanstack/router-core",
+        "@tanstack/router-core/isServer",
+        "@tanstack/router-core/ssr/client",
+        "seroval",
+      ],
+    },
+  },
 });
