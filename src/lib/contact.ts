@@ -23,7 +23,12 @@ export function toWhatsAppDigits(phone: string): string {
   return digits;
 }
 
-export function whatsappLink(phone: string, text?: string): string {
+/** Pre-filled greeting used by every WhatsApp click-to-chat link on the site. */
+export const WHATSAPP_GREETING =
+  "Hello, I visited your portfolio website and would like to get in touch with you.";
+
+/** Official WhatsApp click-to-chat URL: https://wa.me/<country-code digits>?text=... */
+export function whatsappLink(phone: string, text: string = WHATSAPP_GREETING): string {
   const base = `https://wa.me/${toWhatsAppDigits(phone)}`;
   return text ? `${base}?text=${encodeURIComponent(text)}` : base;
 }

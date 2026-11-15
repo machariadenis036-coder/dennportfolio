@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { SectionHeading } from "./SectionHeading";
-import { contactSchema, whatsappLink } from "@/lib/contact";
+import { contactSchema, WHATSAPP_GREETING, whatsappLink } from "@/lib/contact";
 import { sendContactMessage } from "@/lib/portfolio.functions";
 import type { Profile } from "@/lib/portfolio-types";
 
@@ -56,7 +56,7 @@ export function Contact({ profile }: { profile: Profile }) {
 
   const channels = [
     { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
-    { icon: MessageCircle, label: "WhatsApp", value: "Chat with me", href: whatsappLink(profile.whatsapp, "Hi Denis, I saw your portfolio and would like to talk.") },
+    { icon: MessageCircle, label: "WhatsApp", value: "Chat with me", href: whatsappLink(profile.whatsapp, WHATSAPP_GREETING) },
     { icon: Github, label: "GitHub", value: profile.github_url.replace(/^https?:\/\//, ""), href: profile.github_url },
   ];
 

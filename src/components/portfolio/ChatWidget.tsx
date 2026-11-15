@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Mail, MessageCircle, Send, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { whatsappLink } from "@/lib/contact";
+import { WHATSAPP_GREETING, whatsappLink } from "@/lib/contact";
 import type { Profile } from "@/lib/portfolio-types";
 import portrait from "@/assets/denis-portrait.jpg.asset.json";
 
@@ -10,7 +10,7 @@ export function ChatWidget({ profile }: { profile: Profile }) {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
 
-  const message = text.trim() || "Hi Denis, I saw your portfolio and would like to talk.";
+  const message = text.trim() || WHATSAPP_GREETING;
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
