@@ -3,3 +3,5 @@
 - [x] Admin page to edit content and read messages
 - [x] Contact form → inbox + Gmail email
 - [x] WhatsApp chat button
+- [x] CV section from uploaded resume
+- [x] Publish site

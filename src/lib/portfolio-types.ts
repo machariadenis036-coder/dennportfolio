@@ -19,5 +19,6 @@ export const NAV_LINKS = [
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
   { id: "education", label: "Education" },
+  { id: "cv", label: "CV" },
   { id: "contact", label: "Contact" },
 ] as const;
